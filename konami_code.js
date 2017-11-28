@@ -1,21 +1,25 @@
 const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
 
 let index =0;
-function init(e) {
+function init() {
   // Write your JavaScript code inside the init() function
   // Keep track of index outside of the event handler.
-  const key = parseInt(e.detail || e.which);
+  const input = document.querySelector('body')
 
-  if(key === code[index]){
-    index++;
+  input.addEventListener('keydown',function(e){
+    const key = parseInt(e.detail || e.which);
 
-    if(index === code.length){
-      alert("Hurray!");
+    if(key === code[index]){
+      index++;
 
-      index = 0;
+      if(index === code.length){
+        alert("Hurray!");
+
+        index = 0;
+      }
+    }else{
+      index =0;
     }
-  }else{
-    index =0;
-  }
+  })
 
   }
